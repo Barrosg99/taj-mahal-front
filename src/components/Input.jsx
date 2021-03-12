@@ -36,6 +36,6 @@ const StyledInput = styled.input`
   outline: none;
 
   ::placeholder {
-    color: #9F9F9F;;
+    color: #9F9F9F;
   }
 `;

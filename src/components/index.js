@@ -1,4 +1,5 @@
 /* eslint-disable import/prefer-default-export */
+import SelectRep from './SelectRep';
 import Background from './Background';
 import Title from './Title';
 import FormBox from './FormBox';
@@ -13,4 +14,5 @@ export {
   Input,
   Button,
   TextLink,
+  SelectRep,
 };

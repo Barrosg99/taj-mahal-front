@@ -10,7 +10,7 @@ export default function SignIn() {
     <Background>
       <Title> República Taj Mahal</Title>
       <FormBox>
-        <Input type="text" placeholder="Apelido" />
+        <Input type="text" placeholder="e-mail" />
         <Input type="password" placeholder="Senha" />
         <Button type="submit">Entrar</Button>
         <TextLink to="/cadastro">

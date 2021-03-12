@@ -7,7 +7,7 @@ import {
 import {
   // Home,
   SignIn,
-  // SignUp,
+  SignUp,
   // Course,
   // Profile,
   // ForgetPassword,
@@ -20,7 +20,7 @@ function Routes() {
   return (
     <Switch>
       <Route path="/" exact component={SignIn} />
-      {/* <Route path="/cadastro" exact component={SignUp} /> */}
+      <Route path="/cadastro" exact component={SignUp} />
       {/* <Route path="/home" exact component={Home} />
       <Route path="/esqueceu-sua-senha" exact component={ForgetPassword} />
       <Route path="/criar-nova-senha/:token" exact component={PasswordReset} />
