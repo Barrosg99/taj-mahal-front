@@ -5,12 +5,19 @@ import mediaQuery from './mediaQuery';
 const GlobalStyle = createGlobalStyle`
 
   body {
-    /* background-image: url('/assets/bg.jpeg');
+    background-image: url('/assets/tajbg.jpeg');
     background-repeat: no-repeat;
-    background-size: cover; */
-    /* background-position: top ;
-    background-color:white; */
+    background-size: cover;
+    height: 100%;
+    min-height: 100vh;
+    max-width: 100%;
     font-family: 'Roboto';
+  }
+
+  @font-face {
+    font-family: "TajMahal";
+    src: url("/assets/pt-taj-mahal/pt-taj-mahal-webfont.woff") format("woff");
+    src: url("/assets/pt-taj-mahal/pt-taj-mahal-webfont.woff2") format("woff2"),
   }
 
   button {

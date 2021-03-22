@@ -6,6 +6,8 @@ import FormBox from './FormBox';
 import Input from './Input';
 import Button from './Button';
 import TextLink from './TextLink';
+import ErrorContainer from './ErrorContainer';
+import Loading from './Loading';
 
 export {
   Background,
@@ -15,4 +17,6 @@ export {
   Button,
   TextLink,
   SelectRep,
+  ErrorContainer,
+  Loading,
 };

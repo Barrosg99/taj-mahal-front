@@ -1,9 +1,11 @@
 import React from 'react';
 import styled from 'styled-components';
 
-export default function Title({ children }) {
+export default function Title({ children, font }) {
   return (
-    <BoxTitle>
+    <BoxTitle
+      font={font || 'TajMahal'}
+    >
       {children}
     </BoxTitle>
   );
@@ -16,4 +18,5 @@ const BoxTitle = styled.div`
   color: white;
   font-weight: 900;
   font-size: 40px;
+  font-family: ${(props) => props.font}
 `;

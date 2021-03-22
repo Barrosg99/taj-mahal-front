@@ -36,6 +36,7 @@ export default function SelectRep({ options, onChange }) {
       menuColor="red"
       options={options}
       onChange={onChange}
+      isSearchable={false}
     />
   );
 }

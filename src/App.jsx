@@ -5,17 +5,17 @@ import {
 } from 'react-router-dom';
 import Globalstyles from './utils/globalstyles';
 import Routes from './routes';
-// import Providers from './providers';
+import { UserProvider } from './context/UserContex';
 
 function App() {
   return (
-  // <Providers>
-    <BrowserRouter>
-      <Reset />
-      <Globalstyles />
-      <Routes />
-    </BrowserRouter>
-  // </Providers>
+    <UserProvider>
+      <BrowserRouter>
+        <Reset />
+        <Globalstyles />
+        <Routes />
+      </BrowserRouter>
+    </UserProvider>
   );
 }
 

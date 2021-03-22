@@ -1,17 +1,19 @@
 import React from 'react';
 import styled from 'styled-components';
+import Loading from './Loading';
 
 export default function Button({
-  onClick, type, disabledButton, children,
+  onClick, type, disabledButton, children, margin,
 }) {
   return (
     <StyledButton
       onClick={onClick}
       type={type}
       disabledButton={disabledButton}
+      margin={margin || '0px'}
     >
       {disabledButton
-        ? 'Loading'
+        ? <Loading />
         : children}
     </StyledButton>
   );
@@ -19,8 +21,10 @@ export default function Button({
 
 const StyledButton = styled.button`
     width: 100%;
-    padding: 15px;
-    background: #42c3d5;
+    height: 50px;
+    line-height:28px;
+    margin: ${(props) => props.margin};
+    background: #495ec3;
     color: white;
     font-size: 22px;
     font-weight: bold;

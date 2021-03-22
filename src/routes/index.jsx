@@ -8,6 +8,7 @@ import {
   // Home,
   SignIn,
   SignUp,
+  RequestCard,
   // Course,
   // Profile,
   // ForgetPassword,
@@ -21,6 +22,7 @@ function Routes() {
     <Switch>
       <Route path="/" exact component={SignIn} />
       <Route path="/cadastro" exact component={SignUp} />
+      <Route path="/cartao" exact component={RequestCard} />
       {/* <Route path="/home" exact component={Home} />
       <Route path="/esqueceu-sua-senha" exact component={ForgetPassword} />
       <Route path="/criar-nova-senha/:token" exact component={PasswordReset} />
