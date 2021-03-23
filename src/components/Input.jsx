@@ -3,7 +3,7 @@ import styled from 'styled-components';
 
 export default function Input({
   value, onChange, placeholder, type, background,
-  required = true, display, width,
+  required = true, display, width, margin,
 }) {
   return (
     <StyledInput
@@ -15,6 +15,7 @@ export default function Input({
       required={required}
       width={width}
       display={display}
+      margin={margin || '0px 0px 15px 0px'}
     />
   );
 }
@@ -25,7 +26,7 @@ const StyledInput = styled.input`
   border-radius: 6px;
   width: ${(props) => props.width || '100%'};
   height: 50px;
-  margin-bottom: 15px;
+  margin: ${(props) => props.margin};
   font-family: 'Roboto', sans-serif;
   font-size: 1.2rem;
   font-weight: bold;
