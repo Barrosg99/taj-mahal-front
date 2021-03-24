@@ -1,3 +1,4 @@
+/* eslint-disable no-unreachable */
 /* eslint-disable import/no-extraneous-dependencies */
 /* eslint-disable no-unused-vars */
 import axios from 'axios';
@@ -17,10 +18,15 @@ export default function SignUp() {
   const [passwordConfirmation, setPasswordConfirmation] = useState('');
   const [nickname, setNickName] = useState('');
   const [ra, setRa] = useState('');
+  const [phone, setPhone] = useState('');
   const [nextFields, setNextFields] = useState(false);
   const [error, setError] = useState(false);
   const [disabledButton, setDisabledButton] = useState(false);
   const history = useHistory();
+
+  if (user.token) {
+    history.push('/cartao');
+  }
 
   function onSubmit(e) {
     e.preventDefault();
@@ -31,7 +37,7 @@ export default function SignUp() {
       setDisabledButton(false);
       return;
     }
-    if (!ra || !nickname) {
+    if (!ra || !nickname || !phone) {
       setNextFields(true);
       setDisabledButton(false);
       return;
@@ -44,6 +50,7 @@ export default function SignUp() {
         password,
         passwordConfirmation,
         ra,
+        phone,
       })
       .then(() => {
         axios
@@ -80,17 +87,18 @@ export default function SignUp() {
                 onChange={(e) => setNickName(e.target.value)}
               />
               <Input
-                placeholder="Ano que entrou na FEG"
+                placeholder="Ra"
                 value={ra}
                 onChange={(e) => setRa(e.target.value)}
+                mask="99"
+              />
+              <Input
+                placeholder="Telefone"
+                value={phone}
+                onChange={(e) => setPhone(e.target.value)}
+                mask="99 99999-9999"
               />
               <Button type="submit" disabledButton={disabledButton}>Cadastrar</Button>
-              <Button
-                onClick={() => setNextFields(false)}
-                margin="8px 0px  0px"
-              >
-                Voltar
-              </Button>
             </>
           )
           : (
@@ -121,6 +129,15 @@ export default function SignUp() {
               <Button type="submit" disabledButton={disabledButton}>Continuar</Button>
             </>
           )}
+        {nextFields && (
+        <Button
+          type="button"
+          onClick={() => setNextFields(false)}
+          margin="8px 0px  0px"
+        >
+          Voltar
+        </Button>
+        )}
         {error
           && (
           <ErrorContainer>{error}</ErrorContainer>

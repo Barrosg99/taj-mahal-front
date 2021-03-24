@@ -9,12 +9,17 @@ import {
 import UserContext from '../../context/UserContex';
 
 export default function SignIn() {
-  const { setUser } = useContext(UserContext);
+  const { user, setUser } = useContext(UserContext);
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [disabledButton, setDisabledButton] = useState(false);
   const [error, setError] = useState(false);
   const history = useHistory();
+
+  if (user.token) {
+    history.push('/cartao');
+  }
+
   function onSubmit(e) {
     e.preventDefault();
     setDisabledButton(true);

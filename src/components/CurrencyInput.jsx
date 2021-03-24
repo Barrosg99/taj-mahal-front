@@ -1,32 +1,35 @@
 import React from 'react';
+import IntlCurrencyInput from 'react-intl-currency-input';
 import styled from 'styled-components';
-import InputMask from 'react-input-mask';
 
-export default function Input({
-  value, onChange, placeholder, type, background,
-  required = true, display, width, margin, pattern,
-  maxLength, mask, minLength,
-}) {
+const currencyConfig = {
+  locale: 'pt-BR',
+  formats: {
+    number: {
+      BRL: {
+        style: 'currency',
+        currency: 'BRL',
+        minimumFractionDigits: 2,
+        maximumFractionDigits: 2,
+      },
+    },
+  },
+};
+
+export default function CurrencyInput({ onChange }) {
   return (
     <StyledInput
-      mask={mask}
-      value={value}
+      currency="BRL"
+      config={currencyConfig}
       onChange={onChange}
-      placeholder={placeholder}
-      background={background || 'white'}
-      type={type}
-      required={required}
-      width={width}
-      display={display}
-      margin={margin || '0px 0px 15px 0px'}
-      pattern={pattern}
-      maxLength={maxLength}
-      minLength={minLength}
+      placeholder="Valor da Compra"
+      max={6000}
+      margin="0px 0px 15px 0px"
     />
   );
 }
 
-const StyledInput = styled(InputMask)`
+const StyledInput = styled(IntlCurrencyInput)`
   background: ${(props) => props.background};
   display: ${(props) => props.display || 'initial'};
   border-radius: 6px;

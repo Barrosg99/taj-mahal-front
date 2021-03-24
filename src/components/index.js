@@ -8,6 +8,7 @@ import Button from './Button';
 import TextLink from './TextLink';
 import ErrorContainer from './ErrorContainer';
 import Loading from './Loading';
+import CurrencyInput from './CurrencyInput';
 
 export {
   Background,
@@ -19,4 +20,5 @@ export {
   SelectRep,
   ErrorContainer,
   Loading,
+  CurrencyInput,
 };

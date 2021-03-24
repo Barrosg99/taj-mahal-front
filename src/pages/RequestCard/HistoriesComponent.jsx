@@ -4,7 +4,7 @@ import { RadioGroup, RadioButton } from 'react-radio-buttons';
 import styled from 'styled-components';
 import { AiOutlinePlusCircle, AiOutlineMinusCircle } from 'react-icons/ai';
 
-import { Input } from '../../components';
+import { CurrencyInput, Input } from '../../components';
 
 export default function HistoriesComponent({
   history, index, handleHistory, removeHistory, addHistory,
@@ -32,14 +32,21 @@ export default function HistoriesComponent({
         onChange={(e) => handleHistory('place', e.target.value, index)}
         placeholder="Aonde comprou?"
         margin="15px 0px 15px 0px"
+        minLength={10}
       />
       <Input
         value={history.purchase}
         onChange={(e) => handleHistory('purchase', e.target.value, index)}
         placeholder="O que foi comprado?"
+        minLength={10}
+      />
+      <CurrencyInput
+        value={history.price}
+        onChange={(e, value) => handleHistory('price', value, index)}
+        mask={[/ [1-9]?[0-9]{1,5},[0-9]{2} /]}
       />
       <ButtonsContainer>
-        <AiOutlinePlusCircle onClick={addHistory} />
+        <AiOutlinePlusCircle onClick={() => addHistory(index)} />
         <AiOutlineMinusCircle onClick={() => removeHistory(index)} />
       </ButtonsContainer>
     </FormContainer>
