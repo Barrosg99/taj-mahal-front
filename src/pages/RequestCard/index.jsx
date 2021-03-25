@@ -178,12 +178,12 @@ export default function RequestCard() {
               ))}
             {itsFilled
               ? (
-                <Button type="submit">
+                <Button type="submit" disabledButton={disabledButton}>
                   Liberar Cartão
                 </Button>
               )
               : (
-                <Button type="button" onClick={releaseCard}>
+                <Button type="button" onClick={releaseCard} disabledButton={disabledButton}>
                   Liberar Cartão
                 </Button>
               )}
