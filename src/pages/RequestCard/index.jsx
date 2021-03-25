@@ -10,6 +10,7 @@ import {
 } from '../../components';
 import HistoriesComponent from './HistoriesComponent';
 import UserContext from '../../context/UserContex';
+import mediaQuery from '../../utils/mediaQuery';
 
 export default function RequestCard() {
   const [id, setId] = useState(1);
@@ -157,7 +158,13 @@ export default function RequestCard() {
       </TitleContainer>
       {user.hasCard
         ? (
-          <FormBox width="80%" background="none" padding="0px" onSubmit={onSubmit}>
+          <FormBox
+            width="80%"
+            background="none"
+            padding="0px"
+            onSubmit={onSubmit}
+            mediaWidth="100%"
+          >
             {cardHistories
               .map((h, index) => (
                 <HistoriesComponent
@@ -177,14 +184,14 @@ export default function RequestCard() {
               )
               : (
                 <Button type="button" onClick={releaseCard}>
-                  Liberar Pauzao
+                  Liberar Cartão
                 </Button>
               )}
           </FormBox>
         )
         : (
           <Button
-            width="50%"
+            width="60%"
             margin="80px auto"
             display="block"
             onClick={requestCard}
@@ -207,5 +214,10 @@ const TitleContainer = styled.div`
     font-size: 26px;
     margin-top: 11px;
     color: red;
+  }
+
+  ${mediaQuery} {
+    width: 100%;
+    justify-content: space-evenly;
   }
 `;

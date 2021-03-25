@@ -1,18 +1,21 @@
 import React from 'react';
 import styled from 'styled-components';
+// import mediaQuery from '../utils/mediaQuery';
 import Loading from './Loading';
 
 export default function Button({
-  onClick, type, disabledButton, children, margin, width, display,
+  onClick, type, disabledButton, children, margin, width, display, className, myRef,
 }) {
   return (
     <StyledButton
+      className={className}
       onClick={onClick}
       type={type}
       disabledButton={disabledButton}
       margin={margin || '0px'}
       width={width || '100%'}
       display={display || 'initial'}
+      ref={myRef}
     >
       {disabledButton
         ? <Loading />

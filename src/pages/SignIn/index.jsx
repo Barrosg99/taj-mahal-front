@@ -45,7 +45,7 @@ export default function SignIn() {
     <>
       <Title> República Taj Mahal</Title>
       <FormBox onSubmit={onSubmit}>
-        <Input type="text" placeholder="e-mail" onChange={(e) => setEmail(e.target.value)} />
+        <Input type="email" placeholder="e-mail" onChange={(e) => setEmail(e.target.value)} />
         <Input type="password" placeholder="Senha" onChange={(e) => setPassword(e.target.value)} />
         <Button type="submit" disabledButton={disabledButton}>Entrar</Button>
         {error && <ErrorContainer>{error}</ErrorContainer>}

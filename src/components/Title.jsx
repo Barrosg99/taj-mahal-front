@@ -16,6 +16,7 @@ const BoxTitle = styled.div`
   justify-content: center;
   padding: 18px 0px 0px;
   color: white;
+  text-align:center;
   font-weight: 900;
   font-size: 40px;
   font-family: ${(props) => props.font}
