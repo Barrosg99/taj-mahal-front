@@ -37,9 +37,9 @@ export default function RequestCard() {
     axios
       .post(`${process.env.REACT_APP_URL_API}/users/card`, null)
       .then((res) => {
-        if (res.status === 204) alert(`${res.data.nickname} está com o cartão`);
+        if (res.status === 200) alert(`${res.data.nickname} está com o cartão`);
 
-        else if (res.status === 200) {
+        else if (res.status === 202) {
           user.hasCard = true;
           setUser(user);
         }
