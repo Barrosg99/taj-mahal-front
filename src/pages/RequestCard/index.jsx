@@ -27,6 +27,7 @@ export default function RequestCard() {
   }
 
   axios.interceptors.request.use((req) => {
+    alert(user.token);
     req.headers.Authorization = `Bearer ${user.token}`;
     return req;
   });
