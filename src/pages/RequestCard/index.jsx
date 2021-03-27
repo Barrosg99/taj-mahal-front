@@ -26,17 +26,11 @@ export default function RequestCard() {
     history.push('/');
   }
 
-  axios.interceptors.request.use((req) => {
-    alert(user.token);
-    req.headers.Authorization = `Bearer ${user.token}`;
-    return req;
-  });
-
   function requestCard() {
     setDisabledButton(true);
 
     axios
-      .post(`${process.env.REACT_APP_URL_API}/users/card`, null)
+      .post(`${process.env.REACT_APP_URL_API}/users/card`, null, { headers: { Authorization: `Bearer ${user.token}` } })
       .then((res) => {
         if (res.status === 200) alert(`${res.data.nickname} está com o cartão`);
 
@@ -61,7 +55,7 @@ export default function RequestCard() {
     setDisabledButton(true);
 
     axios
-      .post(`${process.env.REACT_APP_URL_API}/users/card-release`, null)
+      .post(`${process.env.REACT_APP_URL_API}/users/card-release`, null, { headers: { Authorization: `Bearer ${user.token}` } })
       .then(() => {
         user.hasCard = false;
         setUser(user);
@@ -83,7 +77,7 @@ export default function RequestCard() {
     setDisabledButton(true);
     cardHistories.forEach((h) => delete h.id);
     axios
-      .post(`${process.env.REACT_APP_URL_API}/card/histories`, cardHistories)
+      .post(`${process.env.REACT_APP_URL_API}/card/histories`, cardHistories, { headers: { Authorization: `Bearer ${user.token}` } })
       .then(() => {
         user.hasCard = false;
         setUser(user);
@@ -137,7 +131,7 @@ export default function RequestCard() {
   function signOut() {
     if (window.confirm('Deseja deslogar?')) {
       axios
-        .post(`${process.env.REACT_APP_URL_API}/users/sign-out`, null)
+        .post(`${process.env.REACT_APP_URL_API}/users/sign-out`, null, { headers: { Authorization: `Bearer ${user.token}` } })
         .catch((err) => {
           if (err.response) {
             if (err.response.status === 401) {
