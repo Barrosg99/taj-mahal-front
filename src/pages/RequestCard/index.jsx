@@ -28,7 +28,7 @@ export default function RequestCard() {
 
   function requestCard() {
     setDisabledButton(true);
-
+    alert(user.token);
     axios
       .post(`${process.env.REACT_APP_URL_API}/users/card`, null, { headers: { Authorization: `Bearer ${user.token}` } })
       .then((res) => {
