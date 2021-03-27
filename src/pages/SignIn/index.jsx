@@ -29,7 +29,7 @@ export default function SignIn() {
       .post(`${process.env.REACT_APP_URL_API}/users/sign-in`, { email, password })
       .then((res) => {
         setUser(res.data);
-        alert();
+        alert(user.token);
         history.push('/cartao');
       })
       .catch((err) => {
