@@ -32,13 +32,13 @@ export default function HistoriesComponent({
         onChange={(e) => handleHistory('place', e.target.value, index)}
         placeholder="Aonde comprou?"
         margin="15px 0px 15px 0px"
-        minLength={10}
+        minLength={3}
       />
       <Input
         value={history.purchase}
         onChange={(e) => handleHistory('purchase', e.target.value, index)}
         placeholder="O que foi comprado?"
-        minLength={10}
+        minLength={3}
       />
       <CurrencyInput
         value={history.price}
