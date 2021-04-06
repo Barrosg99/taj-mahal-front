@@ -9,6 +9,8 @@ import TextLink from './TextLink';
 import ErrorContainer from './ErrorContainer';
 import Loading from './Loading';
 import CurrencyInput from './CurrencyInput';
+import TransactionsList from './TransactionsList';
+import TransactionsComponent from './TransactionsComponent';
 
 export {
   Background,
@@ -21,4 +23,6 @@ export {
   ErrorContainer,
   Loading,
   CurrencyInput,
+  TransactionsList,
+  TransactionsComponent,
 };

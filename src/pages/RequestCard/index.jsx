@@ -5,6 +5,7 @@ import styled from 'styled-components';
 import { ImExit } from 'react-icons/im';
 import axios from 'axios';
 import { useHistory } from 'react-router';
+import { Link } from 'react-router-dom';
 import {
   Background, Button, FormBox, Input, Title,
 } from '../../components';
@@ -184,15 +185,18 @@ export default function RequestCard() {
           </FormBox>
         )
         : (
-          <Button
-            width="60%"
-            margin="80px auto"
-            display="block"
-            onClick={requestCard}
-            disabledButton={disabledButton}
-          >
-            Solicitar Cartão
-          </Button>
+          <>
+            <Button
+              width="60%"
+              margin="80px auto"
+              display="block"
+              onClick={requestCard}
+              disabledButton={disabledButton}
+            >
+              Solicitar Cartão
+            </Button>
+            <StyledLink to="/transacoes">Ver transações</StyledLink>
+          </>
         )}
     </Background>
   );
@@ -214,4 +218,20 @@ const TitleContainer = styled.div`
     width: 100%;
     justify-content: space-evenly;
   }
+`;
+
+const StyledLink = styled(Link)`
+  width: 60%;
+  height: 50px;
+  display: block;
+  line-height: 28px;
+  margin: 80px auto;
+  background: #495ec3;
+  color: white;
+  font-size: 22px;
+  font-weight: bold;
+  border-radius: 10px;
+  box-shadow: 0px 4px 4px rgb(0 0 0 / 25%);
+  text-align: center;
+  padding: 12px;
 `;

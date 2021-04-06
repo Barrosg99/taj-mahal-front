@@ -5,16 +5,10 @@ import {
 } from 'react-router-dom';
 
 import {
-  // Home,
   SignIn,
   SignUp,
   RequestCard,
-  // Course,
-  // Profile,
-  // ForgetPassword,
-  // StudyArea,
-  // PasswordReset,
-  // Courses,
+  Transactions,
 } from '../pages';
 
 function Routes() {
@@ -23,13 +17,7 @@ function Routes() {
       <Route path="/" exact component={SignIn} />
       <Route path="/cadastro" exact component={SignUp} />
       <Route path="/cartao" exact component={RequestCard} />
-      {/* <Route path="/home" exact component={Home} />
-      <Route path="/esqueceu-sua-senha" exact component={ForgetPassword} />
-      <Route path="/criar-nova-senha/:token" exact component={PasswordReset} />
-      <Route path="/perfil" exact component={Profile} />
-      <Route path="/cursos/:id" exact component={Course} />
-      <Route path="/cursos" exact component={Courses} />
-      <Route path="/estudo/:courseId/topic/:topicId" exact component={StudyArea} /> */}
+      <Route path="/transacoes" exact component={Transactions} />
     </Switch>
   );
 }
