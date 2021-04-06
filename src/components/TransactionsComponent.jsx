@@ -15,7 +15,7 @@ export default function TransactionsComponent({ transactions }) {
       {transactions.map((transaction) => (
         <li key={transaction.id}>
           <div><span>{transaction.user.nickname}</span></div>
-          <div><span>{transaction.finality}</span></div>
+          <div><span>{transaction.finality[0] === 'c' ? 'Compras Rep' : 'Reserva'}</span></div>
           <div><span>{transaction.place}</span></div>
           <div><span>{transaction.purchase}</span></div>
           <div><span>{`R$ ${transaction.price}`}</span></div>
@@ -61,5 +61,15 @@ const List = styled.ul`
     div:last-child {
       border: none;
     }
+
+    span {
+        font-size: clamp(0.5rem, 2.3vw, 1.2rem);
+      }
+
+    /* @media (max-width: 850px) {
+      span {
+        font-size: 0.5rem;
+      }
+    } */
   }
 `;
