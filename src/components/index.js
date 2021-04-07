@@ -11,6 +11,7 @@ import Loading from './Loading';
 import CurrencyInput from './CurrencyInput';
 import TransactionsList from './TransactionsList';
 import TransactionsComponent from './TransactionsComponent';
+import AwaitRegistration from './AwaitRegistration';
 
 export {
   Background,
@@ -25,4 +26,5 @@ export {
   CurrencyInput,
   TransactionsList,
   TransactionsComponent,
+  AwaitRegistration,
 };

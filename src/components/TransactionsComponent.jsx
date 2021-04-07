@@ -65,11 +65,5 @@ const List = styled.ul`
     span {
         font-size: clamp(0.5rem, 2.3vw, 1.2rem);
       }
-
-    /* @media (max-width: 850px) {
-      span {
-        font-size: 0.5rem;
-      }
-    } */
   }
 `;

@@ -3,16 +3,21 @@ import axios from 'axios';
 import React, {
   useContext, useEffect, useLayoutEffect, useRef, useState,
 } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useHistory } from 'react-router-dom';
 import styled from 'styled-components';
 import UserContext from '../context/UserContex';
 import Button from './Button';
 import TransactionsComponent from './TransactionsComponent';
 
 export default function TransactionsList() {
-  const { user } = useContext(UserContext);
+  const { user, setUser } = useContext(UserContext);
   const [disabledButton, setDisabledButton] = useState(false);
   const [transitions, setTransitions] = useState([]);
+  const history = useHistory();
+
+  if (!user.token) {
+    history.push('/');
+  }
 
   const getCardHistories = (days) => {
     setDisabledButton(true);
@@ -27,6 +32,10 @@ export default function TransactionsList() {
         if (err.response) {
           if (err.response.status === 422) {
             return alert('Erro na querry string');
+          }
+          if (err.response.status === 401) {
+            setUser({});
+            return alert('Logue novamente');
           }
         }
         return alert('Houve um erro desconhecido, tente novamente mais tarde');
