@@ -1,7 +1,5 @@
 /* eslint-disable no-nested-ternary */
-/* eslint-disable no-unreachable */
 /* eslint-disable import/no-extraneous-dependencies */
-/* eslint-disable no-unused-vars */
 import axios from 'axios';
 import React, { useContext, useRef, useState } from 'react';
 import { useHistory } from 'react-router';
